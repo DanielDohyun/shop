@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './UploadProductPage.css';
 import { Typography, Button, Form, message, Input, Icon } from 'antd';
+import FileUpload from '../../utils/FileUpload';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -20,6 +21,7 @@ function UploadProductPage() {
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
     const [continent, setContinent] = useState(1);
+    const [imgs, setImgs] = useState([]);
 
     return (
         <div className='upload'>
@@ -29,26 +31,19 @@ function UploadProductPage() {
 
             <Form>
 
-                <br />
-                <br />
+                <FileUpload refreshFunction={e=> setImgs(e)}/>
 
                 <label>Title</label>
                 <Input
                     onChange={e => setTitle(e.target.value)}
                     value={title}
                 />
-                
-                <br />
-                <br />
 
                 <label>Description</label>
                 <TextArea
                     onChange={e => setDescription(e.target.value)}
                     value={description}
                 />
-                
-                <br />
-                <br />
 
                 <label>Price($)</label>
                 <Input
@@ -65,9 +60,7 @@ function UploadProductPage() {
                     ))}
                     
                 </select>
-                
-                <br />
-                <br />
+
                 <Button
                     onClick
                 >

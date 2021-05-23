@@ -9355,10 +9355,10 @@
     "prop-types" "^15.6.2"
     "scheduler" "^0.15.0"
 
-"react-dropzone@^10.2.1":
-  "integrity" "sha512-Me5nOu8hK9/Xyg5easpdfJ6SajwUquqYR/2YTdMotsCUgJ1pHIIwNsv0n+qcIno0tWR2V2rVQtj2r/hXYs2TnQ=="
-  "resolved" "https://registry.npmjs.org/react-dropzone/-/react-dropzone-10.2.1.tgz"
-  "version" "10.2.1"
+"react-dropzone@^10.2.2":
+  "integrity" "sha512-U5EKckXVt6IrEyhMMsgmHQiWTGLudhajPPG77KFSvgsMqNEHSyGpqWvOMc5+DhEah/vH4E1n+J5weBNLd5VtyA=="
+  "resolved" "https://registry.npmjs.org/react-dropzone/-/react-dropzone-10.2.2.tgz"
+  "version" "10.2.2"
   dependencies:
     "attr-accept" "^2.0.0"
     "file-selector" "^0.1.12"
@@ -9542,7 +9542,7 @@
   dependencies:
     "prop-types" "^15.6.2"
 
-"react@^16.8.6":
+"react@^16.8.6", "react@>= 16.8":
   "integrity" "sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.9.0.tgz"
   "version" "16.9.0"
