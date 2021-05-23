@@ -1,5 +1,9 @@
 import React, {useState} from 'react';
 import './UploadProductPage.css';
+import { Typography, Button, Form, message, Input, Icon } from 'antd';
+
+const { Title } = Typography;
+const { TextArea } = Input;
 
 const Continents = [
     { key: 1, value: "Africa" },
@@ -20,16 +24,16 @@ function UploadProductPage() {
     return (
         <div className='upload'>
             <div className='heading'>
-                <h2>Upload Travel Product</h2>
+                <Title>Upload Travel Product</Title>
             </div>
 
-            <form>
+            <Form>
 
                 <br />
                 <br />
 
                 <label>Title</label>
-                <input
+                <Input
                     onChange={e => setTitle(e.target.value)}
                     value={title}
                 />
@@ -38,7 +42,7 @@ function UploadProductPage() {
                 <br />
 
                 <label>Description</label>
-                <textarea
+                <TextArea
                     onChange={e => setDescription(e.target.value)}
                     value={description}
                 />
@@ -47,7 +51,7 @@ function UploadProductPage() {
                 <br />
 
                 <label>Price($)</label>
-                <input
+                <Input
                     onChange={e => setPrice(e.target.value)}
                     value={price}
                     type='number'
@@ -64,12 +68,12 @@ function UploadProductPage() {
                 
                 <br />
                 <br />
-                <button
+                <Button
                     onClick
                 >
                     Submit
-                </button>
-            </form>
+                </Button>
+            </Form>
         </div>
     )
 }
