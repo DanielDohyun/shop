@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './UploadProductPage.css';
 import { Typography, Button, Form, message, Input, Icon } from 'antd';
 import FileUpload from '../../utils/FileUpload';
+import Axios from 'axios';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -16,12 +17,36 @@ const Continents = [
     { key: 7, value: "Antarctica" }
 ]
 
-function UploadProductPage() {
+function UploadProductPage(props) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState(0);
     const [continent, setContinent] = useState(1);
     const [imgs, setImgs] = useState([]);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const variable = {
+            writer: props.user.userData._id,
+            title,
+            description,
+            price,
+            images: imgs,
+            continents: continent
+        }
+
+        Axios
+            .post('/api/product/uploadProduct', variable)
+            .then(res => {
+                if (res.data.success) {
+                    alert('Successfully uploaded the product')
+                    props.history.push('/')
+                } else {
+                    alert('Failed to upload the product')
+            }
+        })
+    }
 
     return (
         <div className='upload'>
@@ -29,7 +54,7 @@ function UploadProductPage() {
                 <Title>Upload Travel Product</Title>
             </div>
 
-            <Form>
+            <Form onSubmit={onSubmit}>
 
                 <FileUpload refreshFunction={e=> setImgs(e)}/>
 
@@ -62,7 +87,7 @@ function UploadProductPage() {
                 </select>
 
                 <Button
-                    onClick
+                    onClick={onSubmit}
                 >
                     Submit
                 </Button>
